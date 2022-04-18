@@ -14,14 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.http import HttpResponse
+from django.urls import include, path
 from Home import views as home_views
 from Popular import views as popular_views
 from Edamam import views as edamam_views
+
+
+def customer(request):
+    return HttpResponse('Customer')
+
+
+def customer(request):
+    return HttpResponse('Customer')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_views.Home,name='Home'),
     path('Popular/',popular_views.Popular),
-    path('Recipe/', edamam_views.Recipe)
+    path('Recipe/', edamam_views.Recipe),
+    path('', include('accounts.urls')),
 ]
