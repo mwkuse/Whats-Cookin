@@ -1,3 +1,6 @@
+const dotenv = require("dotenv")
+dotenv.config()
+
 let buttonSearch = document.querySelector("#search")
 let enterSearch = document.querySelector("#recipeInput")
 
@@ -13,9 +16,9 @@ buttonSearch.addEventListener("click", ()=>{
   sendAPIRequest(query)
 })
 
-async function sendAPIRequest(query){
-  let API_ID = "API ID HERE"
-  let API_KEY = "API KEY HERE"
+async function sendAPIRequest(query, id, key){
+  let API_ID = process.env.API_ID
+  let API_KEY = process.env.API_KEY
   let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${API_ID}&app_key=${API_KEY}`);
   let data = await response.json()
   console.log(data)
