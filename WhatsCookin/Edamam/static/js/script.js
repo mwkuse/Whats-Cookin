@@ -27,8 +27,8 @@ window.onload = function() {
 };
 
 async function sendAPIRequest(query, id, key){
-  let API_ID = "f2767e05"
-  let API_KEY = "460ec7564da978494d468d87203b1e75"
+  let API_ID = "add id"
+  let API_KEY = "add key"
   let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${API_ID}&app_key=${API_KEY}`);
   let data = await response.json()
   useAPIData(data)
