@@ -24,6 +24,10 @@ from Edamam import views as edamam_views
 def customer(request):
     return HttpResponse('Customer')
 
+
+def customer(request):
+    return HttpResponse('Customer')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_views.Home,name='Home'),

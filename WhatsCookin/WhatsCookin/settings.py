@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SECRET_KEY = 'sj_ngm%5h8b$t0fl0e-q!7=l%d2(j1kc!)a&=gj&=dms#ynpo)'
 
 # Application definition
 
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'Edamam',
     'Home',
     'Popular',
+
+    'accounts',
 ]
 
 MIDDLEWARE = [
