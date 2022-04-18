@@ -1,8 +1,7 @@
-const dotenv = require("dotenv")
-dotenv.config()
 
 let buttonSearch = document.querySelector("#search")
 let enterSearch = document.querySelector("#recipeInput")
+let recipeButton = document.querySelector("#recipes")
 
 enterSearch.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -16,12 +15,22 @@ buttonSearch.addEventListener("click", ()=>{
   sendAPIRequest(query)
 })
 
+recipeButton.addEventListener("click", ()=>{
+  localStorage.removeItem("recipeVal")
+})
+
+window.onload = function() {
+  query = localStorage.getItem("recipeVal");
+  if (query != undefined){
+    sendAPIRequest(query);
+  }
+};
+
 async function sendAPIRequest(query, id, key){
-  let API_ID = process.env.API_ID
-  let API_KEY = process.env.API_KEY
+  let API_ID = "f2767e05"
+  let API_KEY = "460ec7564da978494d468d87203b1e75"
   let response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${API_ID}&app_key=${API_KEY}`);
   let data = await response.json()
-  console.log(data)
   useAPIData(data)
 }
 
@@ -38,7 +47,7 @@ function useAPIData(data){
               <p class="card-text">
                 Source: ${data.hits[i].recipe.source}
               </p>
-              <a href="${data.hits[i].recipe.url}" class="btn btn-primary">Explore Recipe</a>
+              <a href="${data.hits[i].recipe.url}" class="btn btn-success btn-xs">Explore Recipe</a>
             </div>
           </div>
         </div>
