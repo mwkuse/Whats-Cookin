@@ -29,34 +29,18 @@
 		    </form>
 
 	<div class="container">
-
+        {% for i in Recipes %}
 	      <div class="row">
 		      <!---Display Recipe Link and Image 1-->
 		      <div class="card" style="width: 16rem;">
-					          <h3>Random Recipe 1</h3>
-						  <p>Embed a link to a page w/ a recipe here</p>
-			      </div>
-			      <!---Display Recipe Link and Image 2-->
-				<div class="card" style="width: 16rem;">
-					<h3>Random Recipe 2</h3>
-					<p>Embed a link to a page w/ a recipe here</p>
-				</div>
-				<!---Display Recipe Link and Image 3-->
-				<div class="card" style="width: 16rem;">
-					<h3>Random Recipe 3</h3>
-					<p>Embed a link to a page w/ a recipe here</p>
-				</div>
-				<!---Display Recipe Link and Image 4-->
-				<div class="card" style="width: 16rem;">
-				<h3> Random Recipe 4</h3>
-				<p> Embed a link to a page w/ a recipe here</p>
-				</div>
-				<!---Display Recipe Link and Image 5-->
-				 <div class="card" style="width: 16rem;">
-					 <h3> Random Recipe 5</h3>
-					<p>Embed a link to a page w/ a recipe here</p>
-				</div>
+                   <img src="{{ i.recipeImages }}" class="card-img-top">
+                   <div class="card-body">
+					          <h3 class="card-title">{{ i.recipeTitle }}</h3>
+						  <p>{{ i.recipeLink }}</p>
+                    </div>
+			    </div>
 			</div>
+        {% endfor %}
 
 	</div>
 
