@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
-import os
 import environ
+import os
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY = 'sj_ngm%5h8b$t0fl0e-q!7=l%d2(j1kc!)a&=gj&=dms#ynpo)'
+# SECRET_KEY = 'sj_ngm%5h8b$t0fl0e-q!7=l%d2(j1kc!)a&=gj&=dms#ynpo)'
 
 # Application definition
 

@@ -19,6 +19,7 @@ from django.urls import include, path
 from Home import views as home_views
 from Popular import views as popular_views
 from Edamam import views as edamam_views
+from Pantry import views as pantry_views
 
 
 def customer(request):
@@ -33,5 +34,6 @@ urlpatterns = [
     path('',home_views.Home,name='Home'),
     path('Popular/',popular_views.Popular),
     path('Recipe/', edamam_views.Recipe),
+    path('Pantry/', pantry_views.Pantry),
     path('', include('accounts.urls')),
 ]
