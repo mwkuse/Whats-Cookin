@@ -53,7 +53,7 @@ def logoutUser(request):
 @login_required(login_url='login')
 def dashboard(request):
     user1 = User.objects.get(id=request.user.id)
-    if(Recipe.objects.count()==0):
+    if(Recipe.objects.filter(user=request.user).count()==0):
         with open('recipes.csv', newline='') as csvfile:
          spamreader = csv.reader(csvfile, delimiter="w",)
          for row in spamreader:
