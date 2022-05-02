@@ -9,12 +9,12 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-import environ
+
 import os
+# import environ
 
-
-env = environ.Env()
-environ.Env.read_env()
+# env = environ.Env()
+# environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,14 +25,14 @@ STATIC_DIR = os.path.join(BASE_DIR, "Static")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# SECRET_KEY = 'sj_ngm%5h8b$t0fl0e-q!7=l%d2(j1kc!)a&=gj&=dms#ynpo)'
+SECRET_KEY = 'sj_ngm%5h8b$t0fl0e-q!7=l%d2(j1kc!)a&=gj&=dms#ynpo)'
 
 # Application definition
 
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'Edamam',
     'Home',
     'Popular',
-
+    'django_mysql',
     'accounts',
 ]
 

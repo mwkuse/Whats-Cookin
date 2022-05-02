@@ -20,7 +20,7 @@ from Home import views as home_views
 from Popular import views as popular_views
 from Edamam import views as edamam_views
 from Pantry import views as pantry_views
-
+from Random import views as random_views
 
 def customer(request):
     return HttpResponse('Customer')
@@ -35,5 +35,6 @@ urlpatterns = [
     path('Popular/',popular_views.Popular),
     path('Recipe/', edamam_views.Recipe),
     path('Pantry/', pantry_views.Pantry),
+    path('Random/', random_views.Random),
     path('', include('accounts.urls')),
 ]
