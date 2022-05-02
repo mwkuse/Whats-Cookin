@@ -24,15 +24,11 @@ from Random import views as random_views
 def customer(request):
     return HttpResponse('Customer')
 
-
-def customer(request):
-    return HttpResponse('Customer')
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_views.Home,name='Home'),
     path('Popular/',popular_views.Popular),
-    path('Recipe/', edamam_views.Recipe),
+    path('Recipe/', edamam_views.User_Recipe),
     path('Random/', random_views.Random),
     path('', include('accounts.urls')),
 ]
