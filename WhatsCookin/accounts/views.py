@@ -63,5 +63,5 @@ def dashboard(request):
              ingredients = row[3]
              recipeLink = row[4]
              recipeImages = row[5]
-             Recipe(id = id, recipeTitle = recipeTitle, cookTime = cookTime, ingredients = ingredients, recipeLink = recipeLink, recipeImages = recipeImages, user = user1).save()
+             Recipe(user = user1, id = id, recipeTitle = recipeTitle, cookTime = cookTime, ingredients = ingredients, recipeLink = recipeLink, recipeImages = recipeImages).save()
     return render(request,"Home/Home.html")

@@ -23,11 +23,11 @@
 		    <img src="{% static "media/whatscookin.jpg" %}" width="500" height="300" alt="Can't blame Sam anymore it works...for now"></img>
 		    <!--- Home Search Bar--->
 		    <center>
-		    <form action="/Recipe">
-          <input id="recipeInput" type="search" style="width: 40rem;" placeholder="Search Potential Recipes...">
-          <button id="search" type="button" style="width: 10rem;" class="btn btn-success btn-xs">Go</button>
-		    </center>
-		    </form>
+		      <form action="/Recipe" method="get">
+            <input name="q" type="search" style="width: 40rem;" placeholder="Search Potential Recipes...">
+            <button type="submit" style="width: 10rem;" class="btn btn-success btn-xs">Go</button>
+          </form>
+        </center>
 
 	<div class="d-flex flex-wrap">
         {% for i in Recipes %}
@@ -36,7 +36,7 @@
                  <img class="card-img-top" src="{{ i.recipeImages }}">
                  <div class="card-body">
                             <h3 class="card-title">{{ i.recipeTitle }}</h3>
-                        <<a href="{{ i.recipeLink }}" class="btn btn-primary">Go to recipe!</a>
+                        <a href="{{ i.recipeLink }}" target="_blank" rel="noreferrer noopener" class="btn btn-primary">Go to recipe!</a>
                   </div>
             </div>
         {% endfor %}
