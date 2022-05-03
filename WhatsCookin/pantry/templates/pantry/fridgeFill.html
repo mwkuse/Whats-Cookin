@@ -1,9 +1,9 @@
 <!--
-    dashboard.html
-    This is the customer dashboard page.
-    It contains which fridges the customer has and a button to update the fridges.
-    This is also where they can update their customer information.
+    fridgeFill.html
+    This page is to fill the selected fridge with the specificed ingredients. 
+    Ingridents will be selected from the table below and submitted.
 --> 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +25,6 @@
 
         {% block content %}
 
-
         <br>
         <div class = "row">
             <div class = "col-md">
@@ -42,11 +41,26 @@
                         {% for f in fridges %}
                             <tr>
                                 <td>{{f.name}}</td>
-                                <td>Last Filled Date</td><!--Last updated-->
-                                <td>Fill Now Button</td><!--Fill now button - link to fridgeFill page-->
                             </tr>
                         {% endfor %} 
                         
+                    </table>
+                </div>
+                <div class = "card card-body">
+                    <h5>Ingredients</h5>
+                </div>
+                <div class = "card card-body">
+                    <table class = "table">
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quanity</th>
+                        </tr>
+
+                        {% for i in ingredients %}
+                            <tr>
+                                <td>{{i.name}}</td>
+                            </tr>
+                        {% endfor %} 
                         
                     </table>
                 </div>

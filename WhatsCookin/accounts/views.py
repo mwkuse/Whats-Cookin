@@ -49,8 +49,6 @@ def logoutUser(request):
     return redirect('login')
 
 
-#@login_required(login_url='login')
-#def dashboard(request):
-#    fridges = Fridge.objects.all()
-#    ingredients = Ingredient.objects.all()
-#   return render(request, 'accounts/dashboard.html', {'fridges':fridges, 'ingredients':ingredients})
+@login_required(login_url='login')
+def dashboard(request):
+   return render(request, 'accounts/dashboard.html')

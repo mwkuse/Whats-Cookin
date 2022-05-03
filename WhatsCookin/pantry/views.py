@@ -11,4 +11,8 @@ from .models import *
 def dashboard(request):
     fridges = Fridge.objects.all()
     ingredients = Ingredient.objects.all()
-    return render(request, 'accounts/dashboard.html', {'fridges':fridges, 'ingredients':ingredients})
+    return render(request, 'pantry/dashboard.html', {'fridges':fridges, 'ingredients':ingredients})
+
+@login_required(login_url='login')
+def fridgeFill(request):
+    return render(request, 'pantry/fridgeFill.html')
