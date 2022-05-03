@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.8
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+#import dotenv
 
 
 def main():
