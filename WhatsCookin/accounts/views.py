@@ -5,10 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-import csv
+
 from django.contrib.auth.decorators import login_required
-from Home.models import Recipe
-from django.contrib.auth.models import User
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
@@ -48,20 +46,9 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('dashboard')
+    return redirect('login')
+
 
 @login_required(login_url='login')
 def dashboard(request):
-    user1 = User.objects.get(id=request.user.id)
-    if(Recipe.objects.filter(user=request.user).count()==0):
-        with open('recipes.csv', newline='') as csvfile:
-         spamreader = csv.reader(csvfile, delimiter="w",)
-         for row in spamreader:
-             id = row[0]
-             recipeTitle = row[1]
-             cookTime = row[2]
-             ingredients = row[3]
-             recipeLink = row[4]
-             recipeImages = row[5]
-             Recipe(user = user1, id = id, recipeTitle = recipeTitle, cookTime = cookTime, ingredients = ingredients, recipeLink = recipeLink, recipeImages = recipeImages).save()
-    return render(request,"Home/Home.html")
+   return render(request, 'accounts/dashboard.html')
