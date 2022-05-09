@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 # Create your views here.
 
 def Home(request):
-    recipes = Recipe.objects.order_by("id")[:10]
+    recipes = Recipe.objects.all()
     context = {
         'Recipes' : recipes,
     }
