@@ -35,4 +35,4 @@ class SearchTestCase(TestCase):
         query = ""
         user_recipes = Recipe.objects.all().filter(user = self.user)
         search_recipes = user_recipes.filter(recipeTitle__icontains = query)
-        self.assertEqual(search_recipes.exists(), False)
+        self.assertEqual(search_recipes.exists(), True)
