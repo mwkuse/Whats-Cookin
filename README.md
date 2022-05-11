@@ -18,7 +18,6 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup](#setup)
 
 ## General info
 This project read's in a csv from a scraped site, in this case Allrecipes and presents the recipes in a readable format with a link to the recipe.
