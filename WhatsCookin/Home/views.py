@@ -12,3 +12,18 @@ def Home(request):
         'Recipes' : recipes,
     }
     return render(request,"Home/Home.html",context)
+
+def Saved(request,id):
+    if(request.method == 'GET'):
+        recipe = Recipe.objects.get(id=id)
+        if(recipe.saved==False):
+            recipe.saved = True
+            recipe.save()
+        else:
+            recipe.saved = False
+            recipe.save()
+        recipes = Recipe.objects.filter(user=request.user)
+        context = {
+            'Recipes' : recipes,
+        }
+    return render(request,"Home/Home.html",context)
