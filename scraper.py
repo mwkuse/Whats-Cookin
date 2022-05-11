@@ -1,26 +1,22 @@
 from recipe_scrapers import scrape_me
-import requests
 import re
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from parse_ingredients import parse_ingredient
 import pandas
 
-#site = 'https://www.allrecipes.com/'
-#html = urlopen(site)
-#file = open("allrecipes.txt", "w")
-#soup = BeautifulSoup(html, 'lxml')
+
 mainCategories = ['https://www.allrecipes.com/recipes/17562/dinner/',
-                  'https://www.allrecipes.com/recipes/78/breakfast-and-brunch/',
-                  'https://www.allrecipes.com/recipes/17561/lunch/',
-                  'https://www.allrecipes.com/recipes/76/appetizers-and-snacks/',
-                  'https://www.allrecipes.com/recipes/156/bread/',
-                  'https://www.allrecipes.com/recipes/79/desserts/',
-                  'https://www.allrecipes.com/recipes/77/drinks/',
-                  'https://www.allrecipes.com/recipes/80/main-dish/',
-                  'https://www.allrecipes.com/recipes/96/salad/',
-                  'https://www.allrecipes.com/recipes/81/side-dish/',
-                  'https://www.allrecipes.com/recipes/94/soups-stews-and-chili/']
+'https://www.allrecipes.com/recipes/78/breakfast-and-brunch/',
+'https://www.allrecipes.com/recipes/17561/lunch/',
+'https://www.allrecipes.com/recipes/76/appetizers-and-snacks/',
+'https://www.allrecipes.com/recipes/156/bread/',
+'https://www.allrecipes.com/recipes/79/desserts/',
+'https://www.allrecipes.com/recipes/77/drinks/',
+'https://www.allrecipes.com/recipes/80/main-dish/',
+'https://www.allrecipes.com/recipes/96/salad/',
+'https://www.allrecipes.com/recipes/81/side-dish/',
+'https://www.allrecipes.com/recipes/94/soups-stews-and-chili/']
 
 title = []
 time = []
@@ -34,9 +30,7 @@ def getFirstPageData(page):
     for i in soup.find_all('a', class_="card__titleLink manual-link-behavior elementFont__titleLink margin-8-bottom"):
         if(re.search('\/recipe\/',i.get('href'))):
             betteringredient = []
-            #print(i.get('href'))
             scraper = scrape_me(i.get('href'))
-            #print(i.get('href'))
             if(i.get('href') not in link):
                 title.append(scraper.title())
                 time.append(scraper.total_time())
