@@ -11,4 +11,4 @@ class Recipe(models.Model):
     ingredients = ListCharField(base_field=models.CharField(max_length=45), size=20, max_length=(20 * 50),)
     recipeLink = models.CharField(max_length = 500)
     recipeImages = models.CharField(max_length = 500)
-    saved = models.BooleanField()
+    saved = models.BooleanField(default = False)
