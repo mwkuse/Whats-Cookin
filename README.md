@@ -14,6 +14,7 @@
 
 
 ## Licensing
+* GNU General Public License v3.0
 
 ## Table of contents
 * [General info](#general-info)
