@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'Popular',
     'django_mysql',
     'accounts',
-    'pantry',
+    'Pantry',
 ]
 
 MIDDLEWARE = [
