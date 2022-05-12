@@ -2,12 +2,12 @@ from tkinter import TRUE
 from django.db import models
 
 # Create your models here.
-# A modle is a class that represents a database table 
+# A modle is a class that represents a database table
 
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, null = True)
-    quantity = models.IntegerField(null = True, default = 1)
+    isSaved = models.BooleanField()
 
     def __str__(self):
         return self.name
