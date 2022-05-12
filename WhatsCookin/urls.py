@@ -19,7 +19,7 @@ from django.urls import include, path
 from Home import views as home_views
 from Popular import views as popular_views
 from Edamam import views as edamam_views
-from pantry import views as pantry_views
+from Pantry import views as pantry_views
 from Random import views as random_views
 
 def customer(request):
