@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <html>
     <head>
 <style>
@@ -26,9 +27,9 @@
                                 <a href="{{ i.recipeLink }}" target="_blank" rel="noreferrer noopener" class="btn btn-warning">Go to recipe!</a>
                          	</center> 
 			          {% if i.saved == True%}
-                <a href="/Home/Saved/{{ i.id }}">Favorited</a>
+                <a href="/Home/Saved/{{ i.id }}"><img src = "{%static "media/Star.jpg" %}" width="30" height="30"> </img></a>
                 {% else %}
-                <a href="/Home/Saved/{{ i.id }}">Favorite</a>
+                <a href="/Home/Saved/{{ i.id }}"><img src = "{%static "media/StarOutline.jpg" %}" width="30" height="30"> </img></a>
                 {% endif %}
 	
 
