@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <html>
     <head>
         <style>
@@ -30,7 +31,7 @@
                                    rel="noreferrer noopener"
                                    class="btn btn-warning">Go to recipe!</a>
                             </center>
-                            {% if i.saved == True %}
+                            {% if request.user in i.favorite.all %}
                                 <a href="/Home/Saved/{{ i.id }}">Favorited</a>
                             {% else %}
                                 <a href="/Home/Saved/{{ i.id }}">Favorite</a>
