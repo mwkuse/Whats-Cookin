@@ -34,4 +34,5 @@ urlpatterns = [
     path('Recipe/', edamam_views.User_Recipe),
     path('Random/', random_views.Random),
     path('', include('accounts.urls')),
+    path('Pantry/AddIngredient/<int:id>', pantry_views.AddIngredient),
 ]

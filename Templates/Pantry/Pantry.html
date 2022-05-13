@@ -24,22 +24,32 @@
     <table id="table_id" class="display">
         <thead>
             <tr>
-                <th>Column 1</th>
+                <th></th>
                 <th>Ingredients</th>
             </tr>
         </thead>
         <tbody>
             {% for i in Ingredients %}
-            <tr>
-                <td>Checkbox</td>
-                <td>{{i}}</td>
-            {% endfor %}
-            </tr>
 
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
+                <tr>
+                  {% if request.user in i.is_checked.all %}
+                        <td>
+                          <a src = "media/Star.png" href="/Pantry/AddIngredient/{{ i.id }}">
+                                <img src = "{% static "media/Star.jpg" %}" width="30" height="30">
+                          </a>
+                        </td>
+                        {% else %}
+                        <td>
+                          <a href="/Pantry/AddIngredient/{{ i.id }}">
+                              <img src ="{% static "media/StarOutline.jpg" %}" width="30" height="30">
+                          </a>
+                        </td>
+                  {% endif %}
+
+                    <td>{{ i.name }}</td>
+                </tr>
+
+            {% endfor %}
         </tbody>
     </table>
   </body>
