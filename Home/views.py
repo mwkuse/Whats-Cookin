@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 # Create your views here.
 
+@login_required(login_url='login')
 def Home(request):
     recipes = Recipe.objects.all()
     context = {
@@ -13,17 +14,18 @@ def Home(request):
     }
     return render(request,"Home/Home.html",context)
 
+@login_required(login_url='login')
 def Saved(request,id):
     if(request.method == 'GET'):
         recipe = Recipe.objects.get(id=id)
-        if(recipe.saved==False):
-            recipe.saved = True
-            recipe.save()
+        if(request.user not in recipe.favorite.all()):
+            print("here")
+            recipe.favorite.add(request.user)
         else:
-            recipe.saved = False
-            recipe.save()
-        recipes = Recipe.objects.filter(user=request.user)
+            print("nothere")
+            recipe.favorite.remove(request.user)
+        recipes = Recipe.objects.all()
         context = {
             'Recipes' : recipes,
         }
-    return render(request,"Home/Home.html",context)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'),context)

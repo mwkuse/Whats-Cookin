@@ -10,10 +10,7 @@ from django.contrib.auth import get_user_model
 def User_Recipe(request):
     query = request.GET.get("q")
     if query != None and query != "":
-        user_recipes = Recipe.objects.all().filter(user = request.user)
-        search_recipes = user_recipes.filter(recipeTitle__icontains = query)
-        for recipe in search_recipes:
-            print(recipe.user)
+        search_recipes = Recipe.objects.all().filter(recipeTitle__icontains = query)
         context = {
             'Recipes' : search_recipes,
         }
