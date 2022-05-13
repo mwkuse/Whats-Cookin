@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def Popular(request):
-    recipes = Recipe.objects.filter(user=request.user,saved=True)
+    recipes = Recipe.objects.all()
     context = {
         'Recipes' : recipes,
     }

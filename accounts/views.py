@@ -52,8 +52,7 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    user1 = User.objects.get(id=request.user.id)
-    if(Recipe.objects.filter(user=request.user).count()==0):
+    if(Recipe.objects.count()==0):
         with open('recipes.csv', newline='') as csvfile:
          spamreader = csv.reader(csvfile, delimiter="w",)
          for row in spamreader:
@@ -63,5 +62,5 @@ def dashboard(request):
              ingredients = row[3]
              recipeLink = row[4]
              recipeImages = row[5]
-             Recipe(user = user1, id = id, recipeTitle = recipeTitle, cookTime = cookTime, ingredients = ingredients, recipeLink = recipeLink, recipeImages = recipeImages, saved = False).save()
+             Recipe.objects.create(id = id, recipeTitle = recipeTitle, cookTime = cookTime, ingredients = ingredients, recipeLink = recipeLink, recipeImages = recipeImages).save()
     return render(request,"Home/Home.html")
